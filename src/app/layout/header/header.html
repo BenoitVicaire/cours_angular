@@ -1,0 +1,25 @@
+<div class="navbar bg-base-100 shadow-sm">
+  <div class="navbar-start">
+    <a routerLink="/" class="btn btn-ghost text-xl">MonSite</a>
+  </div>
+  <div class="navbar-center">
+    <ul class="menu menu-horizontal px-1">
+      <li><a routerLink="/">Accueil</a></li>
+      <li><a routerLink="/about">À propos</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+      <li>
+        <details>
+          <summary>Exercices</summary>
+          <ul class="bg-base-100 rounded-t-none p-2 z-10">
+            @for (ex of exercices; track ex.path) {
+              <li>
+                <a [routerLink]="['/exercices', ex.path]">{{ ex.label }}</a>
+              </li>
+            }
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-end"></div>
+</div>

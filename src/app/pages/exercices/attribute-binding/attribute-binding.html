@@ -1,0 +1,10 @@
+<div class="card w-96 bg-base-100 shadow-xl mx-auto mt-4">
+  <figure><img [src]="alice.image" alt="alice a une drolle de tête" /></figure>
+  <div class="card-body">
+	<h2 class="card-title">{{alice.name}}</h2>
+	<p>{{alice.age}} ans</p>
+	<p>{{alice.bio}}</p>
+	<p>{{alice.status}}</p>
+	<a [href]="alice.github">{{alice.github}}</a>
+  </div>
+</div>
