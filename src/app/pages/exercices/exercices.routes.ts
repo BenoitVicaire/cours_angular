@@ -21,6 +21,11 @@ export const EXERCICES: ExerciceRoute[] = [
     label: 'Attribute binding',
     loadComponent: () => import('./attribute-binding/attribute-binding').then(m => m.AttributeBinding),
   },
+  {
+    path: 'event-binding',
+    label: 'Event binding',
+    loadComponent: () => import('./event-binding/event-binding').then(m => m.EventBinding),
+  },
 ];
 
 export const exercicesRoutes: Routes = EXERCICES.map(({ path, loadComponent }) => ({

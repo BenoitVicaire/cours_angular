@@ -19,10 +19,10 @@ export const routes: Routes = [
         path: 'contact',
         loadComponent: () => import('./pages/contact/contact').then(m => m.Contact),
     },
-    {
-        path: 'exercices',
-        children: exercicesRoutes,
-    },
+	{
+	path: 'exercices',
+	loadChildren: () => import('./pages/exercices/exercices.routes').then(m => m.exercicesRoutes),
+	},
     {
         path: '**',
         loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFound),

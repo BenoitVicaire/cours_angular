@@ -1,0 +1,19 @@
+<div class="card w-96 bg-base-100 shadow-xl mx-auto mt-4">
+	<h1 class="text-4xl font-bold text-primary text-center">Event Binding</h1>
+  <div class="card-body">
+	  <h2 class="card-title"></h2>
+	<input (keyup)="updateMsg($event)" type="text" placeholder="Type here" class="input" />
+	<p>{{message}}</p>
+	<div class="card-actions justify-end">
+		<button
+			class="btn btn-primary"
+			[disabled]="btnDisabled"
+			(click)="addFriend()"
+		>
+		Ajoutez un ami
+		</button>
+	</div>
+	<p>{{listFriendsCreationStatus}}</p>
+	
+  </div>
+</div>
