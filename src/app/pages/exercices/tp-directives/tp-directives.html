@@ -11,15 +11,16 @@
 	</button>
 	</div>
 	@if(buttonState){
-		<div>
-			@for (e of uselessArray; track e){
-				<p 
-					[class.blueBackground]="e > 5"
-					[ngStyle]="{color: e>5 ? textColor : null}"
-					>{{ e }}</p>
-				
-			}
-		</div>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat error voluptatum unde numquam expedita, eaque delectus. Asperiores obcaecati cupiditate eius repellat molestias blanditiis, ratione neque officia. Magni laborum exercitationem similique!</p>
 	}
+	<div>
+		@for (e of uselessArray; track e){
+			<p 
+				[class.blueBackground]="e > 5"
+				[ngStyle]="{color: e>5 ? textColor : null}"
+				>{{ e }}</p>
+			
+		}
+	</div>
 </div>
 </div>
