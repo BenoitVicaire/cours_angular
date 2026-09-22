@@ -1,0 +1,23 @@
+<!-- Bloc formulaire -->
+<section class="border border-base-300 bg-warning/20 rounded-lg p-4">
+	<h2 class="font-semibold mb-3">Formulaire d'édition :</h2>
+
+	<div class="flex flex-col gap-2">
+	<input
+		type="text"
+		placeholder="votre nom"
+		class="input input-bordered w-full"
+		[(ngModel)]="name"
+	/>
+	<input
+		type="number"
+		placeholder="0"
+		class="input input-bordered w-full"
+		[(ngModel)]="age"
+	/>
+	<button 
+		class="btn btn-primary btn-sm w-fit mt-2"
+		(click)="onUpdate()"
+		>MAJ des Data</button>
+	</div>
+</section>

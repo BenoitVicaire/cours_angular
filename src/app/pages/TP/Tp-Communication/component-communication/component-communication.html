@@ -1,0 +1,11 @@
+<div class="card w-full max-w-2xl bg-base-100 shadow-xl mx-auto mt-4">
+  <div class="card-body">
+    <h1 class="card-title text-primary text-4xl text-center font-bold justify-center mb-4">
+      TP : Component Communication
+    </h1>
+
+    <app-active-user [activeUser]="oneUser"></app-active-user>
+	<app-user-data (userDataEmitUpdate)="updateUser($event)"></app-user-data>
+    
+  </div>
+</div>

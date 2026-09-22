@@ -19,6 +19,18 @@
           </ul>
         </details>
       </li>
+      <li>
+        <details>
+          <summary>TP</summary>
+          <ul class="bg-base-100 rounded-t-none p-2 z-10">
+            @for (tp of tps; track tp.path) {
+              <li>
+                <a [routerLink]="['/tp', tp.path]">{{ tp.label }}</a>
+              </li>
+            }
+          </ul>
+        </details>
+      </li>
     </ul>
   </div>
   <div class="navbar-end"></div>
