@@ -26,6 +26,11 @@ export const EXERCICES: ExerciceRoute[] = [
     label: 'Event binding',
     loadComponent: () => import('./event-binding/event-binding').then(m => m.EventBinding),
   },
+  {
+    path: 'tp-directives',
+    label: 'TP directives',
+    loadComponent: () => import('./tp-directives/tp-directives').then(m => m.TpDirectives),
+  },
 ];
 
 export const exercicesRoutes: Routes = EXERCICES.map(({ path, loadComponent }) => ({

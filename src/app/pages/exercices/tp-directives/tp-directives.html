@@ -1,0 +1,25 @@
+<div class="card w-96 bg-base-100 shadow-xl mx-auto mt-4">
+  
+  <div class="card-body">
+	<h2 class="card-title">TP directives</h2>
+	<div class="card-actions justify-end">
+	  <button 
+	  	class="btn btn-primary"
+		(click)="toggle()"
+		>
+		{{buttonState ? 'Cacher': 'Afficher'}} détail
+	</button>
+	</div>
+	@if(buttonState){
+		<div>
+			@for (e of uselessArray; track e){
+				<p 
+					[class.blueBackground]="e > 5"
+					[ngStyle]="{color: e>5 ? textColor : null}"
+					>{{ e }}</p>
+				
+			}
+		</div>
+	}
+</div>
+</div>
