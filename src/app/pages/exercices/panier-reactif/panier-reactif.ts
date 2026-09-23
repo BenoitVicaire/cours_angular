@@ -8,8 +8,9 @@ import { Component, computed, signal, effect} from '@angular/core';
   templateUrl: './panier-reactif.html',
 })
 export class PanierReactif {
-
 	constructor(){
+		this.loadFromStorage();
+
 		effect(()=>{
 			const state = {
 				quantity: this.quantity(),
@@ -20,6 +21,19 @@ export class PanierReactif {
 			console.log('[EFFECT] Mise à jours du panier :', state);
 			localStorage.setItem('panier', JSON.stringify(state));
 		});
+	}
+
+	private loadFromStorage():void{
+		const raw = localStorage.getItem('panier');
+		if(!raw) return;
+		try {
+			const state = JSON.parse(raw);
+			this.quantity.set(state.quantity);
+			this.discountCode.set(state.discountCode);
+			this.express.set(state.express)
+		}catch{
+			localStorage.removeItem('panier');
+		}
 	}
 	unitPrice = signal<number>(35)
 	quantity = signal<number>(1)
@@ -52,7 +66,7 @@ export class PanierReactif {
 		this.quantity.update(q => q + 1)
 	}
 	decrementQte():void{
-		this.quantity.update(q => q - 1)
+		this.quantity.update(q => Math.max(0,q-1))
 	}
 	toggleExpress():void{
 		this.express.update(v => !v)
