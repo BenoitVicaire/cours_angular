@@ -41,6 +41,11 @@ export const EXERCICES: ExerciceRoute[] = [
     label: 'Oberservales simple',
     loadComponent: () => import('./observables-simple/observables-simple').then(m => m.ObservablesSimple),
   },
+  {
+    path: 'panier-reactif',
+    label: 'Panier Reactifs',
+    loadComponent: () => import('./panier-reactif/panier-reactif').then(m => m.PanierReactif),
+  },
 ];
 
 export const exercicesRoutes: Routes = EXERCICES.map(({ path, loadComponent }) => ({
