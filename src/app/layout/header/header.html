@@ -9,6 +9,18 @@
       <li><a routerLink="/contact">Contact</a></li>
       <li>
         <details>
+          <summary>Lessons</summary>
+          <ul class="bg-base-100 rounded-t-none p-2 z-10">
+            @for (lesson of lessons; track lesson.path) {
+              <li>
+                <a [routerLink]="['/lessons', lesson.path]">{{ lesson.label }}</a>
+              </li>
+            }
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
           <summary>Exercices</summary>
           <ul class="bg-base-100 rounded-t-none p-2 z-10">
             @for (ex of exercices; track ex.path) {

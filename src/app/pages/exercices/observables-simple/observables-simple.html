@@ -1,0 +1,21 @@
+<div class="card w-fit bg-base-100 shadow-xl mx-auto mt-4">
+  <div class="card-body">
+    <h2 class="card-title justify-center text-4xl text-primary">Obervables</h2>
+    <div class="card-actions justify-end">
+      <button (click)="start()" class="btn btn-success">Démarrer</button>
+      <button (click)="pauseResume()" class="btn" [class]="paused() ? 'btn-info' : 'btn-warning'">
+        {{ paused() ? 'Reprendre' : 'Pause' }}
+      </button>
+      <button (click)="stop()" class="btn btn-error">Arrêter</button>
+    </div>
+    <div>
+      <ul>
+        @for (number of numbers(); track number) {
+          <li>{{ number }}</li>
+        } @empty {
+          <p>Le tableau n'est pas encore rempli</p>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

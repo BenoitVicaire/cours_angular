@@ -27,6 +27,10 @@ export const routes: Routes = [
 	path: 'tp',
 	loadChildren: () => import('./pages/TP/tp.routes').then(m => m.tpRoutes),
 	},
+	{
+	path: 'lessons',
+	loadChildren: () => import('./pages/lessons/lessons.routes').then(m => m.lessonsRoutes),
+	},
     {
         path: '**',
         loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFound),

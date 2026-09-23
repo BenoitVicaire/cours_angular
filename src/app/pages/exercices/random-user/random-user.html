@@ -1,0 +1,85 @@
+@if (isLoading()) {
+  <div class="alert alert-info shadow-lg max-w-lg mx-auto mb-6">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        class="stroke-current flex-shrink-0 w-6 h-6 animate-spin"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 19m15.356-2H21v-5m-1.442-2h.01"
+        />
+      </svg>
+      <span>Chargement en cours...</span>
+    </div>
+  </div>
+} @else if (user(); as u) {
+  <div class="card w-full max-w-lg bg-base-100 shadow-xl mx-auto">
+    <figure class="px-10 pt-10">
+      <img
+        [src]="u.picture.large"
+        alt="Photo de profil"
+        class="rounded-full w-32 h-32 object-cover border-4 border-primary shadow-md"
+      />
+    </figure>
+
+    <div class="card-body items-center text-center p-6">
+      <h2 class="card-title text-3xl text-primary mb-4">Profil Utilisateur</h2>
+
+      <div class="text-lg mb-2">
+        <p>
+          <span class="font-bold">Nom :</span>
+          {{ u.name.first }} {{ u.name.last }}
+        </p>
+      </div>
+
+      <div class="text-lg mb-2">
+        <p>
+          <span class="font-bold">Email :</span>
+          <a [href]="'mailto:' + u.email" class="link link-hover text-secondary">
+            {{ u.email }}
+          </a>
+        </p>
+      </div>
+
+      <div class="text-lg mb-2">
+        <p>
+          <span class="font-bold">Téléphone :</span>
+          {{ u.phone }}
+        </p>
+      </div>
+
+      <div class="text-lg mb-2">
+        <p>
+          <span class="font-bold">Localisation :</span>
+          <span class="badge badge-lg badge-ghost">
+            {{ u.location.city }}, {{ u.location.country }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="alert alert-error shadow-lg max-w-lg mx-auto">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="stroke-current flex-shrink-0 h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <span>Erreur lors du chargement du profil utilisateur.</span>
+    </div>
+  </div>
+}

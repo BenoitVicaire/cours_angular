@@ -31,6 +31,16 @@ export const EXERCICES: ExerciceRoute[] = [
     label: 'TP directives',
     loadComponent: () => import('./tp-directives/tp-directives').then(m => m.TpDirectives),
   },
+  {
+    path: 'random-user',
+    label: 'Random user',
+    loadComponent: () => import('./random-user/random-user').then(m => m.RandomUser),
+  },
+  {
+    path: 'observables-simple',
+    label: 'Oberservales simple',
+    loadComponent: () => import('./observables-simple/observables-simple').then(m => m.ObservablesSimple),
+  },
 ];
 
 export const exercicesRoutes: Routes = EXERCICES.map(({ path, loadComponent }) => ({

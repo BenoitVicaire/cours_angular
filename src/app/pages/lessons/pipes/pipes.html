@@ -1,0 +1,114 @@
+<div class="p-6 mx-auto max-w-4xl">
+  <h1 class="text-4xl font-bold text-center text-primary mb-2">
+    Leçon : Les Pipes en Angular
+  </h1>
+  <p class="text-base-content opacity-70 text-center mb-8">
+    Les pipes permettent de transformer les données dans les templates Angular de manière simple et réutilisable.
+  </p>
+
+  <!-- Section : Pipes intégrés et personnalisés -->
+  <section class="mb-8 card bg-base-100 shadow-xl">
+    <div class="card-body p-6">
+      <h3 class="card-title text-2xl text-success mb-4">
+        1. Pipes intégrés et personnalisés
+      </h3>
+      <p class="text-base-content mb-4">
+        Voici les exemples de pipes intégrés et de vos pipes personnalisés :
+      </p>
+
+      <ul class="space-y-3">
+        <!-- Date Pipe -->
+        <li class="bg-base-200 p-3 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center">
+          <span class="font-semibold text-lg">
+            Date : <span class="text-primary">{{ currentDate | date:'fullDate' }}</span>
+          </span>
+          <div class="badge badge-secondary mt-2 md:mt-0">
+            Original : {{ currentDate | date:'medium' }}
+          </div>
+        </li>
+
+        <!-- Uppercase Pipe -->
+        <li class="bg-base-200 p-3 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center">
+          <span class="font-semibold text-lg">
+            Uppercase : <span class="text-primary">{{ exampleText | uppercase }}</span>
+          </span>
+          <div class="badge badge-secondary mt-2 md:mt-0">
+            Original : {{ exampleText }}
+          </div>
+        </li>
+
+        <!-- Currency Pipe -->
+        <li class="bg-base-200 p-3 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center">
+          <span class="font-semibold text-lg">
+            Currency : <span class="text-primary">{{ productPrice | currency:'EUR':'symbol':'1.2-2' }}</span>
+          </span>
+          <div class="badge badge-secondary mt-2 md:mt-0">
+            Original : {{ productPrice }}
+          </div>
+        </li>
+
+        <!-- Decimal Pipe -->
+        <li class="bg-base-200 p-3 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center">
+          <span class="font-semibold text-lg">
+            Decimal : <span class="text-primary">{{ decimalValue | number:'1.2-2' }}</span>
+          </span>
+          <div class="badge badge-secondary mt-2 md:mt-0">
+            Original : {{ decimalValue }}
+          </div>
+        </li>
+
+        <!-- JSON Pipe -->
+        <li class="bg-base-200 p-3 rounded-lg">
+          <span class="font-semibold text-lg block mb-2">JSON :</span>
+          <pre class="mockup-code bg-neutral text-neutral-content p-4 text-sm whitespace-pre-wrap">{{ jsonData | json }}</pre>
+        </li>
+
+        <!-- Custom Pipe (RedText) -->
+        <li class="bg-base-200 p-3 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center">
+          <span class="font-semibold text-lg">
+            Custom Pipe (RedText):
+            <!-- Le pipe insère la classe 'text-error font-bold' -->
+            <span [innerHTML]="exampleText | redText"></span>
+          </span>
+          <div class="badge badge-secondary mt-2 md:mt-0">
+            Original : {{ exampleText }}
+          </div>
+        </li>
+
+        <!-- Custom Pipe (UnderLineText) -->
+        <li class="bg-base-200 p-3 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center">
+          <span class="font-semibold text-lg">
+            Texte souligné :
+            <!-- Le pipe insère la classe 'underline' -->
+            <span [innerHTML]="exampleText | underlineText"></span>
+          </span>
+          <div class="badge badge-secondary mt-2 md:mt-0">
+            Original : {{ exampleText }}
+          </div>
+        </li>
+
+        <!-- Custom Pipe (CoolJeff) -->
+        <li class="bg-base-200 p-3 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center">
+          <span class="font-semibold text-lg">
+            Texte avec Jeff :
+            <span class="text-info">{{ testText | coolJeff }}</span>
+          </span>
+          <div class="badge badge-secondary mt-2 md:mt-0">
+            Original : {{ testText }}
+          </div>
+        </li>
+
+        <!-- Custom Pipe (TruncateText) -->
+        <li class="bg-base-200 p-3 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center">
+          <span class="font-semibold text-lg">
+            Texte tronqué :
+            <span class="text-info">{{ interactiveText | truncateText:12 }}</span>
+          </span>
+          <div class="badge badge-secondary mt-2 md:mt-0">
+            Original : {{ interactiveText }}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
