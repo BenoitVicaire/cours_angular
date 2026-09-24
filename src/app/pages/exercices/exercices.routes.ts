@@ -46,6 +46,11 @@ export const EXERCICES: ExerciceRoute[] = [
     label: 'Panier Reactifs',
     loadComponent: () => import('./panier-reactif/panier-reactif').then(m => m.PanierReactif),
   },
+  {
+    path: 'formulaire-regex',
+    label: 'Formulaire Regex',
+    loadComponent: () => import('./formulaire-regex/formulaire-regex').then(m => m.FormulaireRegex),
+  },
 ];
 
 export const exercicesRoutes: Routes = EXERCICES.map(({ path, loadComponent }) => ({

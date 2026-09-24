@@ -1,0 +1,69 @@
+<div class="card w-96 bg-base-100 shadow-xl mx-auto mt-5">
+  <div class="card-body">
+    <h2 class="card-title text-primary text-4xl font-bold">Exercice: Validation de Formulaire</h2>
+    <form (ngSubmit)="onSubmit()">
+      <fieldset class="fieldset">
+        <!-- Email -->
+        <label class="label" for="UserEmail">Email</label>
+        <input 
+			type="email" 
+			id="UserEmail" 
+			name="userEmail" 
+			class="input" 
+			placeholder="JohnDoe@mail.com" 
+			[value]="UserEmail()" 
+			[(ngModel)]="UserEmail"
+			[class.input-success]="isEmailValid()"
+			[class.input-error]="!isEmailValid() && UserEmail().length>0"
+			/>
+
+        <!-- Password -->
+        <label class="label" for="UserPassword">Password</label>
+        <input 
+			type="password" 
+			id="UserPassword" 
+			name="UserPassword" 
+			class="input" 
+			placeholder="Azerty1234!" 
+			[value]="UserPassword()"
+			[(ngModel)]="UserPassword"
+			[class.input-success]="isPasswordValid()"
+			[class.input-error]="!isPasswordValid() && UserPassword().length>0"
+			/>
+
+        <!-- Progress -->
+        <progress
+			class="progress w-full"
+			[class]="passwordStrength().progressClass"
+			[value]="passwordStrength().value"
+			max="100">
+		</progress>
+			<p class="text-sm mt-1" [class]="passwordStrength().textClass">
+			Force : {{ passwordStrength().label }}
+		</p>
+
+        <!-- Phone -->
+        <label class="label" for="UserPhoneNumber">Phone Number</label>
+        <input 
+			type="text" 
+			id="UserPhoneNumber" 
+			name="UserPhoneNumber" 
+			class="input" 
+			placeholder="+33123456789" 
+			[value]="UserPhoneNumber()"
+			[(ngModel)]="UserPhoneNumber"
+			[class.input-success]="isPhoneNumberValid()"
+			[class.input-error]="!isPhoneNumberValid() && UserPhoneNumber().length>0"
+			/>
+
+      </fieldset>
+      <div class="card-actions justify-center w-full">
+        <button 
+			type="submit" 
+			class="btn btn-primary w-full"
+			[disabled]="!isFormValid()"
+			>Créer mon compte</button>
+      </div>
+    </form>
+  </div>
+</div>
